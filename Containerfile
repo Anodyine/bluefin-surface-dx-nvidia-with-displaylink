@@ -36,7 +36,7 @@ ARG SOURCE_IMAGE="bluefin"
 ARG SOURCE_SUFFIX="-dx-surface-nvidia"
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
-ARG SOURCE_TAG="latest"
+ARG SOURCE_TAG="gts"
 
 
 ### 2. SOURCE IMAGE
@@ -50,7 +50,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 RUN curl -o /etc/yum.repos.d/fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo
 
-COPY --from=ghcr.io/ublue-os/akmods-extra:surface-40 /rpms/ /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods-extra:surface-39 /rpms/ /tmp/rpms
 
 RUN find /tmp/rpms
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm
