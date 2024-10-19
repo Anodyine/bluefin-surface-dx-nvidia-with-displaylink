@@ -54,7 +54,7 @@ COPY --from=ghcr.io/ublue-os/akmods-extra:surface-39 /rpms/ /tmp/rpms
 
 RUN find /tmp/rpms
 RUN rpm-ostree install /tmp/rpms/kmods/kmod-evdi*.rpm
-
+RUN rpm-ostree kargs --append-if-missing=pci=hpiosize=0
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
