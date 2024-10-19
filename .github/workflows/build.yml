@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - trying-latest-with-39
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
