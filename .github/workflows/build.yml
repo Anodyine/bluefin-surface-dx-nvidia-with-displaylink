@@ -4,12 +4,12 @@ on:
   pull_request:
     branches:
       - main
-      - bluefin-latest
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
+      - bluefin-latest
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
