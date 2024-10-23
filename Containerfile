@@ -52,7 +52,6 @@ RUN curl -o /etc/yum.repos.d/system76.repo https://copr.fedorainfracloud.org/cop
 
 
 RUN rpm-ostree install system76-driver system76-power
-RUN rpm-ostree kargs --append-if-missing=pci=hpiosize=0
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
