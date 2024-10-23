@@ -4,12 +4,12 @@ on:
   pull_request:
     branches:
       - main
-      - system76-power
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
       - main
+      - system76-power
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
