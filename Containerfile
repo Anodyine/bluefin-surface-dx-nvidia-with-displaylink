@@ -51,7 +51,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 RUN curl -o /etc/yum.repos.d/system76.repo https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-40/szydell-system76-fedora-40.repo
 
 
-RUN rpm-ostree install system76-driver-nvidia system76-power
+RUN rpm-ostree install system76-driver system76-power
 RUN rpm-ostree kargs --append-if-missing=pci=hpiosize=0
 COPY build.sh /tmp/build.sh
 
