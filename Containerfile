@@ -47,18 +47,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ### 3. MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
-
-RUN curl -o /etc/yum.repos.d/system76.repo https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-40/szydell-system76-fedora-40.repo
-
-
-RUN rpm-ostree install system76-driver system76-power
-RUN systemctl enable com.system76.PowerDaemon.service system76-power-wake
-RUN systemctl start com.system76.PowerDaemon.service
-RUN systemctl mask power-profiles-daemon.service
-RUN system76-power graphics integrated
-RUN system76-power graphics power off
 COPY build.sh /tmp/build.sh
-
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit

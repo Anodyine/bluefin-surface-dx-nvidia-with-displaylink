@@ -4,6 +4,8 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
+### Add Custom Repos
+curl -o /etc/yum.repos.d/system76.repo https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-40/szydell-system76-fedora-40.repo
 
 ### Install packages
 
@@ -14,8 +16,6 @@ RELEASE="$(rpm -E %fedora)"
 
 # this installs a package from fedora repos
 rpm-ostree install screen
-rpm-ostree install vlc
-
-#### Example for enabling a System Unit File
-
+rpm-ostree install system76-driver system76-power
+systemctl enable com.system76.PowerDaemon.service system76-power-wake
 systemctl enable podman.socket
