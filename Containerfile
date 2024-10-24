@@ -15,7 +15,7 @@
 # - "base"
 #
 #  "aurora", "bazzite", "bluefin" or "ucore" may also be used but have different suffixes.
-ARG SOURCE_IMAGE="bluefin"
+ARG SOURCE_IMAGE="aurora"
 
 ## SOURCE_SUFFIX arg should include a hyphen and the appropriate suffix name
 # These examples all work for silverblue/kinoite/sericea/onyx/lazurite/vauxite/base
@@ -52,6 +52,11 @@ RUN curl -o /etc/yum.repos.d/system76.repo https://copr.fedorainfracloud.org/cop
 
 
 RUN rpm-ostree install system76-driver system76-power
+RUN systemctl enable com.system76.PowerDaemon.service system76-power-wake
+RUN systemctl start com.system76.PowerDaemon.service
+RUN systemctl mask power-profiles-daemon.service
+RUN system76-power graphics integrated
+RUN system76-power graphics power off
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
