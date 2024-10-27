@@ -16,8 +16,7 @@ RELEASE="$(rpm -E %fedora)"
 
 rpm-ostree install latexmk
 texhash
-brew install gh
-
+rpm-ostree install gh
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
