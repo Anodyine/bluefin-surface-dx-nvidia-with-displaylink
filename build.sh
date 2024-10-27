@@ -18,7 +18,6 @@ rpm-ostree install texlive-amscls
 rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
-flatpak install -y brave
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 
