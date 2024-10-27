@@ -14,6 +14,7 @@ RELEASE="$(rpm -E %fedora)"
 
 # this installs a package from fedora repos
 
+rpm-ostree install texlive-scheme-full
 rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
