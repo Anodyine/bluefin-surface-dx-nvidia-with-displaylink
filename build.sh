@@ -18,6 +18,7 @@ rpm-ostree install texlive-amscls
 rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
+rpm-ostree install sunshine
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 
