@@ -19,6 +19,11 @@ rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
 rpm-ostree install sunshine
+echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \
+tee /etc/udev/rules.d/60-sunshine.rules
+udevadm control --reload-rules
+udevadm trigger
+modprobe uinput
 setcap cap_sys_admin+p $(readlink -f $(which sunshine))
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
