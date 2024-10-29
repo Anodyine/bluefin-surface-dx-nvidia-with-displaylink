@@ -19,6 +19,7 @@ rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
 rpm-ostree install sunshine
+setcap cap_sys_admin+p $(readlink -f $(which sunshine))
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 
