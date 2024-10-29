@@ -18,7 +18,6 @@ rpm-ostree install texlive-amscls
 rpm-ostree install latexmk
 texhash
 rpm-ostree install gh
-rpm-ostree install /tmp/sunshine.rpm
 # echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \
 # tee /etc/udev/rules.d/60-sunshine.rules
 # modprobe uinput
