@@ -43,7 +43,7 @@ ARG SOURCE_TAG="stable"
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 # RUN curl -o /etc/yum.repos.d/sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-40/matte-schwartz-sunshine-fedora-40.repo
-# RUN curl -o /tmp/sunshine.rpm https://download.copr.fedorainfracloud.org/results/matte-schwartz/sunshine/fedora-40-x86_64/08016744-sunshine/sunshine-2024.911.215654-1.fc40.x86_64.rpm
+RUN curl -o /tmp/sunshine.rpm https://download.copr.fedorainfracloud.org/results/matte-schwartz/sunshine/fedora-39-x86_64/08016744-sunshine/sunshine-2024.911.215654-1.fc39.x86_64.rpm
 ### 3. MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
